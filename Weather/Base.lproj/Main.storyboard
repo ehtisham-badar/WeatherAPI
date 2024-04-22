@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Weather View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="WeatherViewController" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sW3-tl-3vQ" customClass="PieChartView" customModule="DGCharts">
+                                <rect key="frame" x="0.0" y="176" width="393" height="500"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="GPT-n0-Kfd"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter City Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rdo-2g-0lb">
+                                <rect key="frame" x="20" y="696" width="353" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Okb-76-ITU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzt-X4-4C5">
+                                <rect key="frame" x="20" y="757" width="353" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Get Forecast"/>
+                                <connections>
+                                    <action selector="getForecastButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zyc-xp-uF4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89Q-uh-OEc">
+                                <rect key="frame" x="20" y="135" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vzt-X4-4C5" firstAttribute="top" secondItem="Rdo-2g-0lb" secondAttribute="bottom" constant="21" id="3PV-Gj-M5h"/>
+                            <constraint firstItem="sW3-tl-3vQ" firstAttribute="top" secondItem="89Q-uh-OEc" secondAttribute="bottom" constant="20" id="Cyb-0r-0h8"/>
+                            <constraint firstItem="vzt-X4-4C5" firstAttribute="leading" secondItem="Rdo-2g-0lb" secondAttribute="leading" id="I2q-pZ-SKa"/>
+                            <constraint firstItem="Rdo-2g-0lb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IYj-0p-YQB"/>
+                            <constraint firstItem="Rdo-2g-0lb" firstAttribute="top" secondItem="sW3-tl-3vQ" secondAttribute="bottom" constant="20" id="N7b-3T-bml"/>
+                            <constraint firstItem="89Q-uh-OEc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="T81-c0-Ti3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="89Q-uh-OEc" secondAttribute="trailing" constant="20" id="kM5-zf-51O"/>
+                            <constraint firstItem="vzt-X4-4C5" firstAttribute="trailing" secondItem="Rdo-2g-0lb" secondAttribute="trailing" id="li3-hR-RhG"/>
+                            <constraint firstItem="sW3-tl-3vQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n5U-0O-BzJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rdo-2g-0lb" secondAttribute="trailing" constant="20" id="nDY-sK-v8p"/>
+                            <constraint firstItem="sW3-tl-3vQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="qzA-Ka-eYk"/>
+                            <constraint firstItem="sW3-tl-3vQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tob-jM-Ju2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="sW3-tl-3vQ" id="Qg2-LQ-uYG"/>
+                        <outlet property="cityTF" destination="Rdo-2g-0lb" id="6Dd-rG-6kP"/>
+                        <outlet property="lblLoad" destination="89Q-uh-OEc" id="PWO-GB-Gr6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95" y="5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
